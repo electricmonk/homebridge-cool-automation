@@ -25,8 +25,8 @@ module.exports = function (hubConfig, platformLog) {
 		setState: (uid, state) => {
 			return sendCommand(`${state.onoff.toLowerCase()} ${uid}`)
 				.then(() => sendCommand(`${state.mode.toLowerCase()} ${uid}`))
-				.then(() => sendCommand(`temp ${uid} ${state.st}`));
-				// .then(() => sendCommand(`fspeed ${uid} ${state.fspeed[0].toLowerCase()}`));
+				.then(() => sendCommand(`temp ${uid} ${state.st}`))
+				.then(() => sendCommand(`fspeed ${uid} ${state.fspeed[0].toLowerCase()}`));
 		},
 
 		closeConnection: () => {
