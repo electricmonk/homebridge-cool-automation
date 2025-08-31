@@ -66,14 +66,12 @@ module.exports = (device, hubConfig) => {
 				}
 
 				let newState = unified.formattedState(device, state)
-				if (hubConfig.ignoreFanSpeed) {
-					// Omit fspeed from the state sent to the hub
-					if ('fspeed' in newState) {
-						delete newState.fspeed
-					}
+				// Omit fspeed from the state sent to the hub
+				if ('fspeed' in newState) {
+					delete newState.fspeed
 				}
 				log(device.name, ' -> Setting New State:')
-				log(JSON.stringify(newState, null, 2))
+				log(JSON.stringify(newState))
 
 				try {
 					// send state command to Electra
