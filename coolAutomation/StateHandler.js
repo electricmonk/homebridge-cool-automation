@@ -65,7 +65,13 @@ module.exports = (device, hubConfig) => {
 					device.blockTurningOn = false
 				}
 
-				const newState = unified.formattedState(device, state)
+				let newState = unified.formattedState(device, state)
+				if (hubConfig.ignoreFanSpeed) {
+					// Omit fspeed from the state sent to the hub
+					if ('fspeed' in newState) {
+						delete newState.fspeed
+					}
+				}
 				log(device.name, ' -> Setting New State:')
 				log(JSON.stringify(newState, null, 2))
 
