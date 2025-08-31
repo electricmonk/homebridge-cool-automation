@@ -124,13 +124,6 @@
                 "type": "boolean",
                 "default": false,
                 "required": false
-            },
-            "ignoreFanSpeed": {
-                "title": "Ignore Fan Speed",
-                "description": "When checked, fan speed will not be sent to the hub (fspeed will be omitted)",
-                "type": "boolean",
-                "default": false,
-                "required": false
             }
         }
     },
@@ -155,7 +148,6 @@
 			"description": "Don't change these, unless you understand what you're doing.",
 			"items": [
                 "debug",
-                "ignoreFanSpeed",
 				"statePollingInterval",
 				"minTemperature",
 				"maxTemperature",
